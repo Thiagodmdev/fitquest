@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Proposta do Trabalho Final — FitQuest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 18mm 18mm 20mm; }
+  :root {
+    --ink: #1b1f16;
+    --muted: #5d6452;
+    --line: #d9ddd0;
+    --soft: #f3f5ee;
+    --accent: #c6f24e;
+    --accent-dark: #4f6a05;
+    --dark: #11140e;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; background: #fff; color: var(--ink); font: 10.5pt/1.55 'Barlow', 'Segoe UI', sans-serif; }
+  h1, h2, h3 { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; line-height: 1.1; margin: 0; text-transform: uppercase; }
+  h2 { font-size: 17pt; margin: 22pt 0 8pt; padding-bottom: 4pt; border-bottom: 2px solid var(--ink); break-after: avoid; }
+  h2 .n { color: var(--accent-dark); margin-right: 6pt; }
+  h3 { font-size: 12pt; margin: 12pt 0 4pt; break-after: avoid; }
+  p { margin: 0 0 7pt; }
+  ul { margin: 0 0 8pt; padding-left: 16pt; }
+  li { margin-bottom: 3pt; }
+  strong { font-weight: 600; }
+  .muted { color: var(--muted); }
+
+  /* Capa */
+  .cover { height: 257mm; display: flex; flex-direction: column; background: var(--dark); color: #f2f5ea; margin: -18mm -18mm 0; padding: 26mm 22mm 22mm; break-after: page; }
+  .cover .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 9.5pt; }
+  .cover h1 { font-size: 64pt; line-height: .95; margin: 18pt 0 10pt; }
+  .cover h1 em { color: var(--accent); font-style: normal; }
+  .cover .lead { font-size: 14pt; max-width: 130mm; color: #c9cfbd; }
+  .cover .bolt { width: 34pt; height: 34pt; }
+  .cover .meta { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 14pt 24pt; font-size: 10pt; border-top: 1px solid #3a4031; padding-top: 14pt; }
+  .cover .meta span { display: block; color: #9ea592; font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; }
+  .cover .members { grid-column: 1 / -1; }
+  .cover .members ol { margin: 4pt 0 0; padding-left: 16pt; columns: 2; }
+  .cover .members li { margin-bottom: 6pt; }
+  .blank { display: inline-block; width: 60mm; border-bottom: 1px solid #6a7160; }
+
+  /* Tabelas */
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 10pt; font-size: 9.8pt; break-inside: auto; }
+  th { text-align: left; background: var(--dark); color: #f2f5ea; font-weight: 600; padding: 5pt 7pt; }
+  td { padding: 5pt 7pt; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr { break-inside: avoid; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .ok { color: var(--accent-dark); font-weight: 600; white-space: nowrap; }
+
+  /* Blocos */
+  .callout { background: var(--soft); border-left: 4px solid var(--accent-dark); padding: 9pt 12pt; margin: 6pt 0 12pt; break-inside: avoid; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; margin: 6pt 0 12pt; }
+  .card { border: 1px solid var(--line); border-radius: 6pt; padding: 10pt; break-inside: avoid; }
+  .card .k { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; color: var(--accent-dark); font-size: 13pt; }
+  .card p { margin: 3pt 0 0; font-size: 9.6pt; }
+  figure { margin: 0; break-inside: avoid; }
+  figure img { width: 100%; height: 92mm; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 4pt; display: block; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt 10pt; margin-top: 6pt; }
+  .keep { break-inside: avoid; }
+  figcaption { font-size: 8.8pt; color: var(--muted); margin-top: 4pt; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+  .page-break { break-before: page; }
+  code { font-family: Consolas, monospace; font-size: 9pt; background: var(--soft); padding: 0 3pt; border-radius: 2pt; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <svg class="bolt" viewBox="0 0 32 32" aria-hidden="true"><path d="M18 3 7 18h7l-1 11 12-16h-8z" fill="#c6f24e"/></svg>
+  <p class="eyebrow" style="margin-top:20pt">Proposta do Trabalho Final · Front-end Frameworks</p>
+  <h1>Fit<em>Quest</em></h1>
+  <p class="lead">Aplicação web de gestão de treinos, acompanhamento da evolução e gamificação, desenvolvida em React.js com TypeScript.</p>
+  <div class="meta">
+    <div><span>Curso</span>Ciência da Computação</div>
+    <div><span>Avaliação</span>AV2 · 5,0 pontos + até 1,0 ponto extra</div>
+    <div><span>Tecnologia principal</span>React.js com TypeScript</div>
+    <div><span>Entrega</span>Até 18 de novembro de 2026</div>
+    <div class="members"><span>Integrantes</span>
+      <ol>
+        <li><span class="blank"></span></li>
+        <li><span class="blank"></span></li>
+        <li><span class="blank"></span></li>
+        <li><span class="blank"></span></li>
+        <li><span class="blank"></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<h2><span class="n">1</span>Apresentação</h2>
+<p>O <strong>FitQuest</strong> é uma aplicação web para quem treina na academia registrar seus treinos, acompanhar a própria evolução e se manter motivado por meio de um sistema de gamificação. Cada treino concluído rende pontos de experiência (XP), que fazem o usuário subir de nível, manter sequências semanais e desbloquear conquistas.</p>
+<p>O tema foi escolhido pelo grupo por unir um problema comum do dia a dia a todos os requisitos técnicos da disciplina: componentização, hooks, roteamento entre páginas e integração com dados reais.</p>
+
+<h2><span class="n">2</span>Problema e justificativa</h2>
+<p>Muitas pessoas começam a treinar e desistem nas primeiras semanas. Dois motivos aparecem com frequência:</p>
+<ul>
+  <li><strong>Falta de registro:</strong> sem anotar cargas e repetições, fica difícil saber o que fazer no próximo treino e perceber o próprio progresso.</li>
+  <li><strong>Falta de motivação:</strong> os resultados físicos demoram a aparecer, então o esforço parece não ter recompensa imediata.</li>
+</ul>
+<p>O FitQuest ataca os dois pontos ao mesmo tempo. O registro organizado transforma o progresso em números e gráficos, e a gamificação oferece uma recompensa visível a cada sessão, incentivando a constância.</p>
+
+<h2><span class="n">3</span>Objetivos</h2>
+<h3>Objetivo geral</h3>
+<p>Desenvolver uma aplicação web em React.js com TypeScript que permita gerenciar treinos, acompanhar a evolução e estimular a constância por meio de gamificação, aplicando componentização, hooks, roteamento e integração com dados.</p>
+<h3>Objetivos específicos</h3>
+<ul>
+  <li>Permitir o cadastro e o login de usuários, com dados separados por conta.</li>
+  <li>Registrar treinos com exercícios, séries, repetições, carga e duração.</li>
+  <li>Salvar rotinas para repetir treinos com um clique.</li>
+  <li>Exibir gráficos da evolução de carga por exercício e do volume semanal.</li>
+  <li>Implementar regras de XP, níveis, sequência de semanas ativas, recordes e conquistas.</li>
+  <li>Integrar a aplicação ao Firebase para autenticação e armazenamento em nuvem.</li>
+</ul>
+
+<h2><span class="n">4</span>Público-alvo</h2>
+<p>Estudantes e frequentadores de academia, iniciantes ou intermediários, que querem acompanhar o próprio treino de forma simples, sem planilhas, e precisam de um incentivo extra para manter a regularidade.</p>
+
+<h2><span class="n">5</span>Funcionalidades</h2>
+<div class="grid-3">
+  <div class="card"><div class="k">Organizar</div><p>Registro de treinos, rotinas reutilizáveis, histórico com busca e exclusão de registros.</p></div>
+  <div class="card"><div class="k">Acompanhar</div><p>Gráfico da maior carga por exercício, volume semanal das últimas 8 semanas e estatísticas gerais.</p></div>
+  <div class="card"><div class="k">Evoluir</div><p>XP por treino, níveis com títulos, sequência semanal, recordes de carga, missão da semana e conquistas.</p></div>
+</div>
+
+<h3>Páginas da aplicação</h3>
+<table>
+  <thead><tr><th>Página</th><th>Rota</th><th>O que oferece</th></tr></thead>
+  <tbody>
+    <tr><td>Início</td><td><code>/</code></td><td>Apresentação do app e acesso ao cadastro</td></tr>
+    <tr><td>Login</td><td><code>/login</code></td><td>Entrar ou criar conta com e-mail e senha</td></tr>
+    <tr><td>Painel</td><td><code>/painel</code></td><td>Nível, XP, estatísticas, missão da semana, próxima conquista e últimos treinos</td></tr>
+    <tr><td>Treinos</td><td><code>/treinos</code></td><td>Rotinas salvas e histórico de treinos com busca</td></tr>
+    <tr><td>Novo treino</td><td><code>/treinos/novo</code></td><td>Formulário de registro, que pode ser preenchido a partir de uma rotina</td></tr>
+    <tr><td>Evolução</td><td><code>/evolucao</code></td><td>Gráficos de carga por exercício e de volume semanal</td></tr>
+    <tr><td>Conquistas</td><td><code>/conquistas</code></td><td>Conquistas desbloqueadas, progresso das demais e regras de XP</td></tr>
+  </tbody>
+</table>
+<p class="muted">As páginas internas só podem ser acessadas por usuários logados. Há também uma página de erro para endereços inexistentes.</p>
+
+<h2><span class="n">6</span>Sistema de gamificação</h2>
+<p>O progresso é sempre recalculado a partir da lista de treinos do usuário. Assim, se um treino for excluído, XP, nível e conquistas se ajustam automaticamente, sem risco de inconsistência.</p>
+<table>
+  <thead><tr><th>Ação</th><th class="num">XP</th></tr></thead>
+  <tbody>
+    <tr><td>Treino concluído</td><td class="num">+50</td></tr>
+    <tr><td>Cada exercício do treino</td><td class="num">+10</td></tr>
+    <tr><td>Cada minuto treinado, até 90 minutos</td><td class="num">+1</td></tr>
+    <tr><td>Recorde de carga em um exercício</td><td class="num">+25</td></tr>
+    <tr><td>Semana ativa, com 2 ou mais treinos</td><td class="num">+100</td></tr>
+  </tbody>
+</table>
+<ul>
+  <li><strong>Níveis:</strong> o XP acumulado para chegar a cada nível segue a fórmula <code>100 × nível × (nível − 1)</code>, ou seja, 200 XP para o nível 2, 600 para o 3 e 1.200 para o 4. Cada faixa de níveis tem um título, de Iniciante a Lenda.</li>
+  <li><strong>Sequência:</strong> conta quantas semanas seguidas o usuário teve pelo menos 2 treinos. A semana em andamento não quebra a sequência.</li>
+  <li><strong>Recordes:</strong> um recorde acontece quando a carga de um exercício supera a maior carga já registrada nele.</li>
+  <li><strong>Missão da semana:</strong> o usuário define uma meta de treinos semanais e acompanha o progresso no painel.</li>
+  <li><strong>Conquistas:</strong> 10 conquistas, como “Primeiro passo”, “Um mês firme” (4 semanas ativas seguidas) e “Cem toneladas” (100.000 kg de volume total).</li>
+</ul>
+<div class="callout">Ao concluir um treino, o app mostra exatamente o que aquela sessão rendeu: o XP ganho, a subida de nível e as conquistas desbloqueadas.</div>
+
+<h2><span class="n">7</span>Arquitetura e tecnologias</h2>
+<table>
+  <thead><tr><th>Tecnologia</th><th>Uso no projeto</th></tr></thead>
+  <tbody>
+    <tr><td>React.js + TypeScript</td><td>Interface em componentes funcionais com tipagem em todo o código</td></tr>
+    <tr><td>Vite</td><td>Ambiente de desenvolvimento e geração da versão de produção</td></tr>
+    <tr><td>React Router</td><td>Navegação entre as páginas e proteção das rotas internas</td></tr>
+    <tr><td>Firebase Authentication</td><td>Cadastro e login com e-mail e senha</td></tr>
+    <tr><td>Cloud Firestore</td><td>Armazenamento em nuvem dos treinos e rotinas de cada usuário</td></tr>
+    <tr><td>Recharts</td><td>Gráficos de evolução de carga e volume semanal</td></tr>
+  </tbody>
+</table>
+<p>O código é organizado em camadas: <strong>componentes</strong> e <strong>páginas</strong> cuidam da interface; <strong>contextos</strong> guardam o estado global de autenticação e treinos; <strong>hooks personalizados</strong> expõem esses dados às telas; e a camada de <strong>serviços</strong> concentra o acesso ao Firebase. As regras de gamificação ficam isoladas em funções puras, o que facilita explicá-las e testá-las.</p>
+<p>Os dados ficam em <code>users/{id}/workouts</code> e <code>users/{id}/routines</code>, e as regras de segurança do Firestore garantem que cada usuário só acesse os próprios registros. O projeto também tem um modo demonstração com dados locais, usado quando o Firebase não está configurado, o que permite rodar o app em qualquer máquina.</p>
+
+<h2><span class="n">8</span>Atendimento aos requisitos</h2>
+<table>
+  <thead><tr><th>Requisito do trabalho</th><th>Exigido</th><th>No FitQuest</th></tr></thead>
+  <tbody>
+    <tr><td>Componentes funcionais</td><td>Mínimo de 8, 2 por integrante</td><td><span class="ok">10 componentes</span>, 2 por integrante</td></tr>
+    <tr><td>Navegação e páginas</td><td>Mínimo de 5 páginas</td><td><span class="ok">7 páginas</span>, mais a página de erro</td></tr>
+    <tr><td>Hooks</td><td>Mínimo de 4 diferentes</td><td><span class="ok">10 hooks</span>: <code>useState</code>, <code>useEffect</code>, <code>useContext</code>, <code>useRef</code>, <code>useMemo</code>, <code>useCallback</code> e 4 hooks próprios</td></tr>
+    <tr><td>Linguagem</td><td>TypeScript</td><td><span class="ok">Todo o código</span> em <code>.ts</code> e <code>.tsx</code></td></tr>
+    <tr><td>Backend ou API (opcional)</td><td>Até +1,0 ponto</td><td><span class="ok">Firebase</span> para autenticação e banco de dados</td></tr>
+  </tbody>
+</table>
+
+<h3>Hooks próprios</h3>
+<ul>
+  <li><code>useAuth</code>: fornece o usuário logado a qualquer tela.</li>
+  <li><code>useTraining</code>: lê e altera treinos e rotinas.</li>
+  <li><code>useGamification</code>: calcula XP, nível, sequência e conquistas.</li>
+  <li><code>useLocalStorage</code>: guarda a meta semanal no navegador.</li>
+</ul>
+
+<div class="keep"><h2><span class="n">9</span>Divisão dos componentes</h2>
+<p>Cada integrante é responsável por desenvolver e explicar 2 componentes na apresentação.</p>
+<table>
+  <thead><tr><th style="width:26%">Integrante</th><th style="width:30%">Componentes</th><th>Responsabilidade</th></tr></thead>
+  <tbody>
+    <tr><td>1. <span class="blank" style="width:32mm"></span></td><td><code>Navbar</code><br><code>ProtectedRoute</code></td><td>Navegação principal e bloqueio das rotas para quem não está logado</td></tr>
+    <tr><td>2. <span class="blank" style="width:32mm"></span></td><td><code>WorkoutForm</code><br><code>ExerciseRow</code></td><td>Formulário de registro de treino e linha de cada exercício</td></tr>
+    <tr><td>3. <span class="blank" style="width:32mm"></span></td><td><code>WorkoutCard</code><br><code>RoutineCard</code></td><td>Exibição dos treinos do histórico e das rotinas salvas</td></tr>
+    <tr><td>4. <span class="blank" style="width:32mm"></span></td><td><code>ProgressChart</code><br><code>StatCard</code></td><td>Gráficos de evolução e cartões de estatística</td></tr>
+    <tr><td>5. <span class="blank" style="width:32mm"></span></td><td><code>XPBar</code><br><code>AchievementBadge</code></td><td>Barra de nível e XP e cartões de conquista</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="page-break"><span class="n">10</span>Telas</h2>
+<p class="muted">Capturas da versão atual, no modo demonstração com dados de exemplo.</p>
+<div class="shots">
+  <figure><img src="../telas/painel.png" alt="Painel"><figcaption>Painel: nível, XP, estatísticas e missão da semana.</figcaption></figure>
+  <figure><img src="../telas/evolucao.png" alt="Evolução"><figcaption>Evolução: maior carga por exercício e volume semanal.</figcaption></figure>
+  <figure><img src="../telas/conquistas.png" alt="Conquistas"><figcaption>Conquistas: desbloqueadas e progresso das demais.</figcaption></figure>
+  <figure><img src="../telas/novo-treino.png" alt="Novo treino"><figcaption>Novo treino, preenchido a partir de uma rotina.</figcaption></figure>
+</div>
+
+<div class="keep"><h2><span class="n">11</span>Cronograma até a entrega</h2>
+<table>
+  <thead><tr><th style="width:24%">Data</th><th>Atividade</th></tr></thead>
+  <tbody>
+    <tr><td>Até 10/11</td><td>Criar o projeto no Firebase, configurar o app e testar login e armazenamento</td></tr>
+    <tr><td>11/11 a 12/11</td><td>Cada integrante revisa seus 2 componentes e prepara a explicação do código</td></tr>
+    <tr><td>13/11</td><td>Publicar o repositório no GitHub e fazer o deploy na Vercel</td></tr>
+    <tr><td>14/11</td><td>Completar o README com integrantes, instruções e telas finais</td></tr>
+    <tr><td>15/11 a 16/11</td><td>Ensaiar a apresentação de 15 minutos com todos os integrantes</td></tr>
+    <tr><td>17/11</td><td>Ajustes finais e, se necessário, gravação da apresentação</td></tr>
+    <tr><td>18/11</td><td>Entrega no Teams: link do GitHub e, se gravada, link do vídeo</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="n">12</span>Entrega e apresentação</h2>
+<ul>
+  <li><strong>Repositório público no GitHub</strong> com o código completo e um README contendo instruções de instalação e uso, integrantes e componentes de cada um e prints das telas principais.</li>
+  <li><strong>Deploy</strong> na Vercel, com o endereço informado no README.</li>
+  <li><strong>Apresentação de 15 minutos</strong> com demonstração prática do app e explicação técnica dos requisitos, com participação de todos os integrantes.</li>
+</ul>
+<p>Roteiro previsto para a demonstração: cadastro de um usuário, registro de um treino a partir de uma rotina, recompensa em XP e conquista, gráficos de evolução e, por fim, explicação do código por cada integrante.</p>
+
+</body>
+</html>
