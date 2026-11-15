@@ -96,8 +96,15 @@ export function createDemoApi(): Api {
     dataListeners.get(key)?.forEach((emit) => emit());
   }
 
-  function add<T extends { id: string }>(key: string, item: Omit<T, 'id'>) {
-    save(key, [...read<T[]>(key, []), { ...item, id: crypto.randomUUID() } as T]);
+  function add<T extends { id: string; createdAt?: number }>(
+    key: string,
+    item: Omit<T, 'id'>
+  ) {
+    const payload = {
+      ...item,
+      createdAt: (item as { createdAt?: number }).createdAt ?? Date.now(),
+    };
+    save(key, [...read<T[]>(key, []), { ...payload, id: crypto.randomUUID() } as T]);
   }
 
   function remove<T extends { id: string }>(key: string, id: string) {
