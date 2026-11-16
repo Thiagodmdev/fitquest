@@ -77,7 +77,10 @@ export function createFirebaseApi(config: FirebaseOptions): Api {
     },
 
     async addWorkout(uid, workout) {
-      await addDoc(collection(db, `users/${uid}/workouts`), workout);
+      await addDoc(collection(db, `users/${uid}/workouts`), {
+        ...workout,
+        createdAt: workout.createdAt ?? Date.now(),
+      });
     },
 
     async deleteWorkout(uid, id) {
@@ -89,7 +92,10 @@ export function createFirebaseApi(config: FirebaseOptions): Api {
     },
 
     async addRoutine(uid, routine) {
-      await addDoc(collection(db, `users/${uid}/routines`), routine);
+      await addDoc(collection(db, `users/${uid}/routines`), {
+        ...routine,
+        createdAt: routine.createdAt ?? Date.now(),
+      });
     },
 
     async deleteRoutine(uid, id) {
