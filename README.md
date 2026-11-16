@@ -8,15 +8,30 @@ Trabalho final da disciplina **Front-end Frameworks** (Ciência da Computação)
 
 ## Integrantes e componentes
 
-Cada integrante é responsável por criar e explicar 2 componentes.
+Cada integrante é responsável por criar e explicar 2 componentes e 2 hooks.
 
-| Integrante | Componentes | O que fazem |
-|---|---|---|
-| Thiago Victor | [`Navbar`](src/components/Navbar.tsx), [`ProtectedRoute`](src/components/ProtectedRoute.tsx) | Navegação principal e bloqueio das rotas internas |
-| Eduardo Martins | [`WorkoutForm`](src/components/WorkoutForm.tsx), [`ExerciseRow`](src/components/ExerciseRow.tsx) | Formulário de treino e linha de cada exercício |
-| Esdras Elohim | [`WorkoutCard`](src/components/WorkoutCard.tsx), [`RoutineCard`](src/components/RoutineCard.tsx) | Exibição de treinos e de rotinas |
-| Ruan Bandeira | [`ProgressChart`](src/components/ProgressChart.tsx), [`StatCard`](src/components/StatCard.tsx) | Gráficos de evolução e cartões de estatística |
-| Sara | [`XPBar`](src/components/XPBar.tsx), [`AchievementBadge`](src/components/AchievementBadge.tsx) | Barra de nível e cartão de conquista |
+| Integrante | Componentes | Hooks | O que fazem |
+|---|---|---|---|
+| Thiago Victor | [`Navbar`](src/components/Navbar.tsx), [`ProtectedRoute`](src/components/ProtectedRoute.tsx) | `useNavigate`, `useLocation` | Navegação principal e bloqueio das rotas internas |
+| Eduardo Martins | [`WorkoutForm`](src/components/WorkoutForm.tsx), [`ExerciseRow`](src/components/ExerciseRow.tsx) | `useEffect`, `useRef` | Formulário de treino e linha de cada exercício |
+| Esdras Elohim | [`WorkoutCard`](src/components/WorkoutCard.tsx), [`RoutineCard`](src/components/RoutineCard.tsx) | `useContext`, `useTraining` | Exibição de treinos e de rotinas |
+| Ruan Bandeira | [`ProgressChart`](src/components/ProgressChart.tsx), [`StatCard`](src/components/StatCard.tsx) | `useState`, `useMemo` | Gráficos de evolução e cartões de estatística |
+| Sara | [`XPBar`](src/components/XPBar.tsx), [`AchievementBadge`](src/components/AchievementBadge.tsx) | `useGamification`, `useLocalStorage` | Barra de nível e cartão de conquista |
+
+### Onde mostrar cada hook na apresentação
+
+| Integrante | Hook | Arquivo para mostrar | Ligação com os componentes |
+|---|---|---|---|
+| Thiago Victor | `useNavigate` | [`Navbar.tsx`](src/components/Navbar.tsx) | Volta para a página inicial depois de sair da conta |
+| Thiago Victor | `useLocation` | [`ProtectedRoute.tsx`](src/components/ProtectedRoute.tsx) | Guarda a página pedida para voltar a ela depois do login |
+| Eduardo Martins | `useEffect` | [`ExerciseRow.tsx`](src/components/ExerciseRow.tsx) e [`TrainingContext.tsx`](src/contexts/TrainingContext.tsx) | Dá foco à linha nova e assina os treinos do Firestore em tempo real |
+| Eduardo Martins | `useRef` | [`ExerciseRow.tsx`](src/components/ExerciseRow.tsx) | Guarda a referência do campo que recebe o foco |
+| Esdras Elohim | `useContext` | [`useTraining.ts`](src/hooks/useTraining.ts) | Lê os treinos e rotinas do contexto sem passar props |
+| Esdras Elohim | `useTraining` | [`WorkoutsPage.tsx`](src/pages/WorkoutsPage.tsx) | Fornece os treinos e rotinas exibidos nos cartões e as funções de excluir |
+| Ruan Bandeira | `useState` | [`ProgressPage.tsx`](src/pages/ProgressPage.tsx) | Guarda o exercício escolhido para o gráfico |
+| Ruan Bandeira | `useMemo` | [`ProgressPage.tsx`](src/pages/ProgressPage.tsx) | Só recalcula os dados do gráfico quando os treinos ou o exercício mudam |
+| Sara | `useGamification` | [`useGamification.ts`](src/hooks/useGamification.ts), [`DashboardPage.tsx`](src/pages/DashboardPage.tsx) e [`AchievementsPage.tsx`](src/pages/AchievementsPage.tsx) | Calcula o XP e o nível mostrados na `XPBar`, no Painel, e as conquistas mostradas nos cartões, na página de Conquistas |
+| Sara | `useLocalStorage` | [`useLocalStorage.ts`](src/hooks/useLocalStorage.ts) e [`DashboardPage.tsx`](src/pages/DashboardPage.tsx) | Guarda a meta semanal do painel no navegador |
 
 ## Requisitos do trabalho
 
@@ -42,6 +57,9 @@ Cada integrante é responsável por criar e explicar 2 componentes.
 | `useTraining` (custom) | [`src/hooks/useTraining.ts`](src/hooks/useTraining.ts) | Acessar e alterar treinos e rotinas |
 | `useGamification` (custom) | [`src/hooks/useGamification.ts`](src/hooks/useGamification.ts) | Calcular XP, nível, sequência e conquistas |
 | `useLocalStorage` (custom) | [`src/hooks/useLocalStorage.ts`](src/hooks/useLocalStorage.ts) | Guardar a meta semanal no navegador |
+| `useNavigate` (React Router) | `Navbar`, `DashboardPage`, `NewWorkoutPage` | Mudar de página pelo código |
+| `useLocation` (React Router) | `ProtectedRoute`, `LoginPage`, `DashboardPage` | Ler a página atual e dados enviados entre páginas |
+| `useSearchParams` (React Router) | `NewWorkoutPage` | Ler a rotina escolhida na URL |
 
 ## Como rodar
 

@@ -26,17 +26,19 @@ A nota depende destes mínimos. Nenhuma mudança pode deixar o projeto abaixo de
 
 ## Quem cuida de cada componente
 
-Cada integrante desenvolve e explica 2 componentes na apresentação. Não renomeie, apague, junte ou reescreva por inteiro o componente de outra pessoa sem que ela concorde, porque é ela quem vai explicar o código. Correções pequenas podem ser feitas, mas avise o responsável.
+Cada integrante desenvolve e explica 2 componentes e 2 hooks na apresentação. Não renomeie, apague, junte ou reescreva por inteiro o componente de outra pessoa sem que ela concorde, porque é ela quem vai explicar o código. Correções pequenas podem ser feitas, mas avise o responsável.
 
-| Integrante | Componentes |
-|---|---|
-| Thiago Victor | `Navbar`, `ProtectedRoute` |
-| Eduardo Martins | `WorkoutForm`, `ExerciseRow` |
-| Esdras Elohim | `WorkoutCard`, `RoutineCard` |
-| Ruan Bandeira | `ProgressChart`, `StatCard` |
-| Sara | `XPBar`, `AchievementBadge` |
+| Integrante | Componentes | Hooks |
+|---|---|---|
+| Thiago Victor | `Navbar`, `ProtectedRoute` | `useNavigate`, `useLocation` |
+| Eduardo Martins | `WorkoutForm`, `ExerciseRow` | `useEffect`, `useRef` |
+| Esdras Elohim | `WorkoutCard`, `RoutineCard` | `useContext`, `useTraining` |
+| Ruan Bandeira | `ProgressChart`, `StatCard` | `useState`, `useMemo` |
+| Sara | `XPBar`, `AchievementBadge` | `useGamification`, `useLocalStorage` |
 
-Se a divisão mudar, atualize esta tabela, a tabela de integrantes do `README.md` e a da proposta em `docs/proposta/proposta.html`.
+Os arquivos onde cada hook aparece estão na seção "Onde mostrar cada hook na apresentação" do `README.md`. Não remova nem mova o uso de um desses hooks sem avisar quem vai apresentá-lo, e mantenha essa seção atualizada se o arquivo mudar.
+
+Se a divisão mudar, atualize esta tabela, as tabelas de integrantes do `README.md` e a da proposta em `docs/proposta/proposta.html`.
 
 ## Arquitetura
 
