@@ -78,7 +78,8 @@ export default function WorkoutForm({ initialName = '', initialExercises = [], s
       <div className="form-grid">
         <label className="field form-grid-wide">
           <span>Nome do treino</span>
-          <input required placeholder="Ex.: Peito e ombros" value={name} onChange={(event) => setName(event.target.value)} />
+          {/* O Firestore recusa nomes com mais de 100 caracteres (ver firestore.rules). */}
+          <input required maxLength={100} placeholder="Ex.: Peito e ombros" value={name} onChange={(event) => setName(event.target.value)} />
         </label>
         <label className="field">
           <span>Data</span>
