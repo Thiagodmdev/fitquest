@@ -30,11 +30,11 @@ Cada integrante desenvolve e explica 2 componentes na apresentação. Não renom
 
 | Integrante | Componentes |
 |---|---|
-| Aluno 1 | `Navbar`, `ProtectedRoute` |
-| Aluno 2 | `WorkoutForm`, `ExerciseRow` |
-| Aluno 3 | `WorkoutCard`, `RoutineCard` |
-| Aluno 4 | `ProgressChart`, `StatCard` |
-| Aluno 5 | `XPBar`, `AchievementBadge` |
+| Thiago Victor | `Navbar`, `ProtectedRoute` |
+| Eduardo Martins | `WorkoutForm`, `ExerciseRow` |
+| Esdras Elohim | `WorkoutCard`, `RoutineCard` |
+| Ruan Bandeira | `ProgressChart`, `StatCard` |
+| Sara | `XPBar`, `AchievementBadge` |
 
 Se a divisão mudar, atualize esta tabela, a tabela de integrantes do `README.md` e a da proposta em `docs/proposta/proposta.html`.
 

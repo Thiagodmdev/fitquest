@@ -8,15 +8,15 @@ Trabalho final da disciplina **Front-end Frameworks** (Ciência da Computação)
 
 ## Integrantes e componentes
 
-Preencha com os nomes do grupo. Cada integrante é responsável por criar e explicar 2 componentes.
+Cada integrante é responsável por criar e explicar 2 componentes.
 
 | Integrante | Componentes | O que fazem |
 |---|---|---|
-| _Aluno 1_ | [`Navbar`](src/components/Navbar.tsx), [`ProtectedRoute`](src/components/ProtectedRoute.tsx) | Navegação principal e bloqueio das rotas internas |
-| _Aluno 2_ | [`WorkoutForm`](src/components/WorkoutForm.tsx), [`ExerciseRow`](src/components/ExerciseRow.tsx) | Formulário de treino e linha de cada exercício |
-| _Aluno 3_ | [`WorkoutCard`](src/components/WorkoutCard.tsx), [`RoutineCard`](src/components/RoutineCard.tsx) | Exibição de treinos e de rotinas |
-| _Aluno 4_ | [`ProgressChart`](src/components/ProgressChart.tsx), [`StatCard`](src/components/StatCard.tsx) | Gráficos de evolução e cartões de estatística |
-| _Aluno 5_ | [`XPBar`](src/components/XPBar.tsx), [`AchievementBadge`](src/components/AchievementBadge.tsx) | Barra de nível e cartão de conquista |
+| Thiago Victor | [`Navbar`](src/components/Navbar.tsx), [`ProtectedRoute`](src/components/ProtectedRoute.tsx) | Navegação principal e bloqueio das rotas internas |
+| Eduardo Martins | [`WorkoutForm`](src/components/WorkoutForm.tsx), [`ExerciseRow`](src/components/ExerciseRow.tsx) | Formulário de treino e linha de cada exercício |
+| Esdras Elohim | [`WorkoutCard`](src/components/WorkoutCard.tsx), [`RoutineCard`](src/components/RoutineCard.tsx) | Exibição de treinos e de rotinas |
+| Ruan Bandeira | [`ProgressChart`](src/components/ProgressChart.tsx), [`StatCard`](src/components/StatCard.tsx) | Gráficos de evolução e cartões de estatística |
+| Sara | [`XPBar`](src/components/XPBar.tsx), [`AchievementBadge`](src/components/AchievementBadge.tsx) | Barra de nível e cartão de conquista |
 
 ## Requisitos do trabalho
 
